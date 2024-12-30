@@ -9,7 +9,7 @@ This app integrates Frappe with LinkedIn, enabling seamless posting of images, v
 - Integration with LinkedIn API endpoints to register uploads, post content, and manage assets.
 
 ## Installation
-1. Clone the repository: `bench get-app https://github.com/FaircodeLab-org/Linkedin/tree/main`
+1. Clone the repository: `bench get-app https://github.com/FaircodeLab-org/Linkedin`
 2. Install the app on your site: `bench --site [your-site-name] install-app linkedin`
 3. Set up the necessary LinkedIn API credentials in the **LinkedIn Settings** doctype.
 
