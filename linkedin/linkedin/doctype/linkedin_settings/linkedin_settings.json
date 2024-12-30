@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-12-18 20:15:36.009715",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company_id",
+  "column_break_sgcg",
+  "oauth_credentials_section",
+  "client_id",
+  "column_break_tlbd",
+  "client_secret",
+  "oauth_20_section",
+  "access_token",
+  "column_break_pcez",
+  "refresh_token"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Company ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_sgcg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "oauth_credentials_section",
+   "fieldtype": "Section Break",
+   "label": "OAuth Credentials"
+  },
+  {
+   "fieldname": "client_id",
+   "fieldtype": "Data",
+   "label": "Client ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tlbd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "client_secret",
+   "fieldtype": "Password",
+   "label": "Client secret",
+   "reqd": 1
+  },
+  {
+   "fieldname": "oauth_20_section",
+   "fieldtype": "Section Break",
+   "label": "OAuth 2.0"
+  },
+  {
+   "fieldname": "access_token",
+   "fieldtype": "Password",
+   "in_list_view": 1,
+   "label": "Access token",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_pcez",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "refresh_token",
+   "fieldtype": "Password",
+   "label": "Refresh token",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-12-30 13:12:02.347798",
+ "modified_by": "Administrator",
+ "module": "Linkedin",
+ "name": "Linkedin settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

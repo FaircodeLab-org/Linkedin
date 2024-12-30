@@ -5,6 +5,34 @@ app_description = "To integrate linkedin with ERPNext"
 app_email = "abdullamirshadcl@gmail.com"
 app_license = "mit"
 
+fixtures = [
+    {"doctype": "Workspace", "filters": [["module", "=", "linkedin"]]}
+]
+# doctype_js = {
+#     "Linkedin Settings": "linkedin/doctype/linkedin_settings/linkedin_settings.js"
+# }
+
+# doc_events = {
+#     "Linkedin Settings": {
+#         "before_save": "linkedin.linkedin.doctype.linkedin_settings.linkedin_settings.before_save_linkedin_settings"
+#     }
+# }
+doc_events = {
+    "Post Text": {
+        "before_submit": "linkedin.linkedin_post.text_post"
+    }, 
+    "Post Article": {
+        "before_submit": "linkedin.linkedin_post.post_article"
+    }, 
+    "Post Image": {
+        "before_submit": "linkedin.linkedin_post.post_image"
+    }, 
+    "Post Video": {
+        "before_submit": "linkedin.linkedin_post.post_video"
+    }, 
+}
+
+
 # Apps
 # ------------------
 
