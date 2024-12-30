@@ -35,7 +35,8 @@ To use the app, configure the following:
    - Image Post: For image updates.
    - Video Post: For video updates.
 2. Fill out the fields in the selected doctype with the required details.
-3. Save and submit the record to post the content on LinkedIn.
+3. **Important:** When posting images or videos, ensure that they are set to **public**. If the content is not made public, it will not be published on LinkedIn.
+4. Save and submit the record to post the content on LinkedIn.
 
 ### Token Management
 The app automatically refreshes expired LinkedIn access tokens.
