@@ -45,7 +45,7 @@
   },
   {
    "fieldname": "client_secret",
-   "fieldtype": "Password",
+   "fieldtype": "Data",
    "label": "Client secret",
    "reqd": 1
   },
@@ -56,7 +56,7 @@
   },
   {
    "fieldname": "access_token",
-   "fieldtype": "Password",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Access token",
    "reqd": 1
@@ -67,7 +67,7 @@
   },
   {
    "fieldname": "refresh_token",
-   "fieldtype": "Password",
+   "fieldtype": "Data",
    "label": "Refresh token",
    "reqd": 1
   }
@@ -75,7 +75,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-12-30 13:12:02.347798",
+ "modified": "2024-12-31 15:50:03.931570",
  "modified_by": "Administrator",
  "module": "Linkedin",
  "name": "Linkedin settings",
