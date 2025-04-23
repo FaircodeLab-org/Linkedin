@@ -2,7 +2,7 @@
 # import frappe
 from frappe.model.document import Document
 
-class Linkedinsettings(Document):
+class Linkedinconfiguration(Document):
     """
     Custom LinkedIn Settings Document Class
     """
@@ -30,7 +30,7 @@ class Linkedinsettings(Document):
 #         frappe.log_error(str(e), "LinkedIn API Error")  # Log error for debugging
 #         frappe.throw(_("Failed to fetch LinkedIn URN: {0}").format(str(e)))
 
-# def before_save_linkedin_settings(doc, method):
+# def before_save_linkedin_configuration(doc, method):
 #     """
 #     Before saving the LinkedIn Settings document, fetch and set the URN.
 #     """

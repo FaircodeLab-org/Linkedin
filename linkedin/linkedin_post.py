@@ -6,14 +6,14 @@ from urllib.parse import unquote
 
 url = "https://api.linkedin.com/v2/ugcPosts"
     
-token = token = frappe.db.get_value("LinkedIn Settings", None, "access_token", as_dict=False)
-company_id = frappe.db.get_value("LinkedIn Settings", None, "company_id")
+token = frappe.db.get_value("LinkedIn Configuration", None, "access_token", as_dict=False)
+company_id = frappe.db.get_value("LinkedIn Configuration", None, "company_id")
 
 def get_new_access_token():
     refresh_url = "https://www.linkedin.com/oauth/v2/accessToken"
-    refresh_token = frappe.db.get_value("LinkedIn Settings", None, "refresh_token", as_dict=False)
-    client_id = frappe.db.get_value("LinkedIn Settings", None, "client_id")
-    client_secret = frappe.db.get_value("LinkedIn Settings", None, "client_secret")
+    refresh_token = frappe.db.get_value("LinkedIn Configuration", None, "refresh_token", as_dict=False)
+    client_id = frappe.db.get_value("LinkedIn Configuration", None, "client_id")
+    client_secret = frappe.db.get_value("LinkedIn Configuration", None, "client_secret")
 
     payload = {
         "grant_type": "refresh_token",
@@ -31,7 +31,7 @@ def get_new_access_token():
         new_token_data = response.json()
         new_access_token = new_token_data.get("access_token")
         
-        frappe.db.set_value("LinkedIn Settings", None, "access_token", new_access_token)
+        frappe.db.set_value("LinkedIn Configuration", None, "access_token", new_access_token)
         frappe.db.commit()
         print('updated the access token')
 
@@ -155,22 +155,19 @@ def post_article(doc, method):
 
 
 def get_file_content(file_path):
-    # Decode URL-encoded file path (like spaces converted to %20)
     file_path = unquote(file_path)
     
-    # Check if the file is stored in /private/files (ERPNext private files)
     if file_path.startswith("/private/files") or file_path.startswith("/files"):
         local_path = frappe.utils.get_site_path("public", file_path.lstrip("/"))
         
         if os.path.exists(local_path):
-            return open(local_path, "rb")  # Return the file content as binary
+            return open(local_path, "rb")
         else:
             raise FileNotFoundError(f"File not found at: {local_path}")
     else:
-        # If it's a URL, download the image
         response = requests.get(file_path, stream=True)
         if response.status_code == 200:
-            return response.raw  # Return the image content as stream
+            return response.raw
         else:
             raise Exception(f"Failed to download file from: {file_path}")
 
@@ -327,14 +324,14 @@ def post_video(doc, method):
         "specificContent": {
             "com.linkedin.ugc.ShareContent": {
                 "shareCommentary": {
-                    "text": doc.text or "Check out this video!" 
+                    "text": doc.text or "Check out this video!"
                 },
                 "shareMediaCategory": "VIDEO",
                 "media": [
                     {
                         "status": "READY",
-                        "description": {"text": doc.description or "Video description"},  
-                        "media": asset  
+                        "description": {"text": doc.description or "Video description"}, 
+                        "media": asset 
                     }
                 ]
             }
@@ -354,5 +351,3 @@ def post_video(doc, method):
         print(f"Failed to create LinkedIn post: {post_response.text}")
         doc.post_status = "Failed"
         doc.api_response = post_response.text
-
-
